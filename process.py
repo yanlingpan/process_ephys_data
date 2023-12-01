@@ -7,7 +7,7 @@ from utils import *
 from constants import *
 
 # read file, process trace, output to excel
-def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf')) :
+def process_trace(input_file_path, output_file_path, start_idx=str(0), end_idx=str('np.inf')) :
 	'''
 	process vc or cc trace data in .asc file with 3 data columns:
 
@@ -22,9 +22,8 @@ def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf')) :
 	process_started = False
 	storage = {}
 	sweep_ids = []
-	
-	output_file_name = input_file_name.split("/")[-1].replace("asc", "xlsx")
-	with open(input_file_name, encoding="utf-8") as file:
+
+	with open(input_file_path, encoding="utf-8") as file:
 		for line in file.readlines():
 			line = line.split(',')
 			# `Sweep` marks the start of a trace
@@ -57,11 +56,11 @@ def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf')) :
 				except IndexError:
 					continue
 		
-		write_to_excel(output_file_name, storage, sweep_ids=sweep_ids)
+		write_to_excel(output_file_path, storage, sweep_ids=sweep_ids)
 
 
 # read file, process data, output to excel
-def process_data(input_file_name) :
+def process_data(input_file_path, output_file_path) :
 	'''
 	process vc or cc data in .txt file with 2-4 data columns:
 
@@ -79,8 +78,7 @@ def process_data(input_file_name) :
 	curr_protocol = ''
 	keyvalDict = {} # dict for extracted value, used by extract_value_to_dict()
 
-	output_file_name = input_file_name.split("/")[-1].replace("txt", "xlsx")
-	with open(input_file_name, encoding="utf-8") as file:
+	with open(input_file_path, encoding="utf-8") as file:
 		for line in file.readlines() :
 			line = line.split(',')			
 			# `SERIES_x_y` marks the start of a protocol
@@ -212,4 +210,4 @@ def process_data(input_file_name) :
 						else :
 							continue
 
-	write_to_excel(output_file_name, storage, protocol_to_cellids)
+	write_to_excel(output_file_path, storage, protocol_to_cellids)
