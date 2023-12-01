@@ -10,8 +10,7 @@ if __name__ == "__main__":
 	for file in glob(data_directory + '*.asc') + glob(data_directory + '*.txt'):
 		fname = file.split("/")[-1]
 		if fname.find(".asc") != -1: # trace data
-			cc = True if fname.find("cc") != -1 else False
-			process_trace(file, cc)
+			process_trace(file)
 		else:
 			process_data(file)
 		print(f"proccessed\t{fname}")

@@ -7,7 +7,7 @@ from utils import *
 from constants import *
 
 # read file, process trace, output to excel
-def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf'), cc=False) :
+def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf')) :
 	'''
 	process vc or cc trace data in .asc file with 3 data columns:
 
@@ -18,9 +18,6 @@ def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf'), cc=F
 	`Sweep` line is required for process.
 	
 	start_idx, end_idx: used to subset trace if full trace not needed
-	cc: determines unit convertion
-		True: 	convert V to mV
-		Flase:	convert A to nV
 	'''
 	process_started = False
 	storage = {}
@@ -28,7 +25,6 @@ def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf'), cc=F
 	
 	output_file_name = input_file_name.split("/")[-1].replace("asc", "xlsx")
 	with open(input_file_name, encoding="utf-8") as file:
-	
 		for line in file.readlines():
 			line = line.split(',')
 			# `Sweep` marks the start of a trace
@@ -36,6 +32,10 @@ def process_trace(input_file_name, start_idx=str(0), end_idx=str('np.inf'), cc=F
 				process_started = False
 				curr_sweep = line[0]
 				sweep_ids.append(line[0])
+				continue
+			# set cc bool. for unit conversion
+			if line[0].find("Index") != -1 :
+				cc = True if line[2].find('V-mon') != -1 else False
 				continue
 
 			time_idx = line[0].strip()
