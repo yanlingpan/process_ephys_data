@@ -4,16 +4,8 @@ import xlsxwriter
 
 def write_to_excel(output_fpath, storage, protocol_cellids=None, sweep_ids=None):
 		# Create an new Excel file and add a worksheet.
-		print(f"\n{'#'*50}\n{output_fpath}\n{'#'*50}\n")
-		# # full = "D:\code\process_ephys_data\processed\20200226-RGC-cc-ctrl2-13-5-4-cc6-2AP.xlsx"
-		# # workbook = xlsxwriter.Workbook(full)
-		# output_fpath = os.path.abspath(output_fpath)
-		print(f"\n{'DDD#'*50}\n{os.path.dirname(output_fpath)}\n{'#'*50}\n")
-		print(os.path.split(output_fpath))
-		assert os.path.exists(os.path.split(output_fpath)[0])
 		workbook = xlsxwriter.Workbook(output_fpath)
 		worksheet = workbook.add_worksheet()
-		# workbook.close()
 
 		# output
 		currRow = 0
