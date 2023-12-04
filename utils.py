@@ -18,7 +18,7 @@ def write_to_excel(output_fpath, storage, protocol_cellids=None, sweep_ids=None)
 			# sort by key
 			arr = storage
 			arr = [[idx, arr[idx]] for idx in arr]
-			write_sorted_arr(worksheet, currRow, currCol, arr, sweep_ids)
+			currRow = write_sorted_arr(worksheet, currRow, currCol, arr, sweep_ids)
 		else: # write protocols
 			for protocol, _ in storage.items() : 
 				currCol = 0
@@ -31,13 +31,15 @@ def write_to_excel(output_fpath, storage, protocol_cellids=None, sweep_ids=None)
 				# sort by key
 				arr = storage[protocol]
 				arr = [[float(i[0]), i[1]] for i in arr]
-				write_sorted_arr(worksheet, currRow, currCol, arr, cell_ids)
+				# print(arr)
+				currRow = write_sorted_arr(worksheet, currRow, currCol, arr, cell_ids)
 
 		workbook.close()
 
 def write_sorted_arr(worksheet, currRow, currCol, arr, ids):
 		arr = sorted(arr, key=lambda l:l[0])
 		for key, val in arr :
+			# currRow += 1
 			currCol = 0
 			worksheet.write(currRow, currCol, key)
 			currCol += 1
@@ -51,6 +53,7 @@ def write_sorted_arr(worksheet, currRow, currCol, arr, ids):
 				currCol += 1
 			currRow += 1
 		currRow += 1
+		return currRow
 
 
 def extract_value_to_dict(inputLine, extractNum, keyPos, keyvalDict) : 
