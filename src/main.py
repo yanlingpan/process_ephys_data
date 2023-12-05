@@ -17,7 +17,7 @@ if __name__ == "__main__":
 	
 	# get data_path for files, make output directory if not exist
 	if Path(data_dir, 'data').is_dir():
-		data_path = Path(data_dir, 'data.', '*.*')
+		data_path = Path(data_dir, 'data', '*.*')
 		if not (output_path:=Path(data_dir, 'output')).is_dir():
 			Path(data_dir, 'output').mkdir(parents=False, exist_ok=True)
 	else:
