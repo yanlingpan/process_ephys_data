@@ -7,7 +7,7 @@ from utils import *
 from constants import *
 
 # read file, process trace, output to excel
-def process_trace(input_file_path, output_file_path, start_idx=str(0), end_idx=str('np.inf')) :
+def process_trace(input_file_path, output_file_path, start_idx=START_IDX, end_idx=END_IDX) :
 	'''
 	process vc or cc trace data in .asc file with 3 data columns:
 

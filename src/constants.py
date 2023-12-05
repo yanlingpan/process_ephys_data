@@ -1,8 +1,11 @@
-"""defines constances used by process_data()"""
+"""defines constances"""
 
-# protocols for specific extraction pattern
-# determines how columns are organized, which values to extract from notebook
-# fall back to default pattern if not included in this section
+"""
+used by process_data()
+protocols for specific extraction pattern
+determines how columns are organized, which values to extract from notebook
+fall back to default pattern if not included in this section
+"""
 cell_capacitance_protocols = ["CC", "tivPPbefore"]
 cc_noStim_protocols = ["cc-noST", "CC"]
 cc_inputResistence_protocols = ["cc-input R", "input2"]
@@ -11,8 +14,17 @@ cc_APcount_protocols = ["cc2", "cc10", "cc-short", "cc-short2", "cc-ramp50", "cc
 												] 
 vc_persistent_protocols = ["tivPPbefore", "tiv-200ms", "tivPPbefore-200ms"]
 
-# column index of cell metadata
+
+"""
+used by process_trace()
+subset trace if full trace not needed
+"""
+START_IDX = str(0)
+END_IDX = str(float('inf'))
+
+
 """ 
+column index of cell metadata
 index number depends exported notebook
 examples:
 'EPC10, V-Clamp,  1.0364E-11,  2.6536E+06,  8.0504E+01'
