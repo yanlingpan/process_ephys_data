@@ -1,4 +1,4 @@
-Process data from HEKA electrophysiological recordings in .txt or .asc, re-organize, and output as .xlsx.
+Process data from HEKA electrophysiological recordings in ```.txt``` or ```.asc```, re-organize, and output as ```.xlsx```.
 
 ### Directory organization
 ---
