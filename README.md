@@ -30,27 +30,30 @@ Process data from HEKA electrophysiological recordings in .txt or .asc, re-organ
     * ```.txt```: notebook exported data
     * ```.asc```: trace data
     * from both voltage-clamp or current-clamp recordings
-  * example data included in directory
+  * example data included in ```data``` directory
 * ```output```
   * processed data
-  * .xlsx
-  * example output data included in directory
+  * ```.xlsx```
+  * example output data included in ```output``` directory
 * ```src/constants.py```
   * defines names of recording protocols
 
 ### Usage
 -----
-* Option 1 (simplest): double click executable
-  * on Windows: use ```main.exe``` under ```Windows_executable```
-  * on macOS: use ```main``` under ```macOS_executable```
-* Option 2 (if you need to modify code): command line execute ```main.py``` under ```src```
+* Option 1 (simplest): 
+  * double click executable
+    * macOS: use ```main``` under ```macOS_executable```
+    * Windows: use ```main.exe``` under ```Windows_executable```
+* Option 2 (if you need to modify code):
+  * command line execute ```src/main.py```
   * requirements:
     * Python version: 3.10.10
     * packge: XlsxWriter==3.1.9
-  ```bash
-  python src/main.py
-  ```
-  on macOS, also
-  ```bash
-  ./src/main.py
-  ```
+  * macOS and Windows: 
+    ```bash
+    python src/main.py
+    ```
+  * macOS also
+    ```bash
+    ./src/main.py
+    ```
