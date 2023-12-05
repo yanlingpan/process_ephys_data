@@ -1,4 +1,4 @@
-Process data from HEKA electrophysiological recordings in .txt or .asc format, re-organize, and output in .xlsx format.
+Process data from HEKA electrophysiological recordings in .txt or .asc, re-organize, and output as .xlsx.
 
 ### Directory organization
 ---
@@ -40,17 +40,17 @@ Process data from HEKA electrophysiological recordings in .txt or .asc format, r
 
 ### Usage
 -----
-* option 1 (simplest): double click executable
+* Option 1 (simplest): double click executable
   * on Windows: use ```main.exe``` under ```Windows_executable```
   * on macOS: use ```main``` under ```macOS_executable```
-* option 2 (if you need to modify code): command line execute ```main.py``` under ```src```
+* Option 2 (if you need to modify code): command line execute ```main.py``` under ```src```
   * requirements:
     * Python version: 3.10.10
     * packge: XlsxWriter==3.1.9
-```bash
-python src/main.py
-```
-on macOS, also
-```bash
-./src/main.py
-```
+  ```bash
+  python src/main.py
+  ```
+  on macOS, also
+  ```bash
+  ./src/main.py
+  ```
