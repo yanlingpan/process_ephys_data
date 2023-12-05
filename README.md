@@ -42,8 +42,8 @@ Process data from HEKA electrophysiological recordings in .txt or .asc, re-organ
 -----
 * Option 1 (simplest): 
   * double click executable
-    * macOS: use ```main``` under ```macOS_executable```
-    * Windows: use ```main.exe``` under ```Windows_executable```
+    * macOS: use ```macOS_executable/main```
+    * Windows: use ```Windows_executablemain.exe```
 * Option 2 (if you need to modify code):
   * command line execute ```src/main.py```
   * requirements:
