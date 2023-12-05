@@ -1,6 +1,7 @@
 """defines constances used by process_data()"""
 
 # protocols for specific extraction pattern
+# determines how columns are organized, which values to extract from notebook
 # fall back to default pattern if not included in this section
 cell_capacitance_protocols = ["CC", "tivPPbefore"]
 cc_noStim_protocols = ["cc-noST", "CC"]

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, sys
+import sys
 from glob import glob
 from pathlib import Path
 
