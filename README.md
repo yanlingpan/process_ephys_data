@@ -1,3 +1,7 @@
+Process data from HEKA electrophysiological recordings in .txt or .asc format, re-organize, and output in .xlsx format.
+
+### Directory organization
+---
 ```bash
 ├── README.md
 ├── Windows_executable
@@ -21,27 +25,32 @@
     └── utils.py
 ```
 
-
-
----
-Process data from HEKA electrophysiological recordings in .txt or .asc format, re-organize, and output in .xlsx format.
-
-### Directory organization
----
-* data
+* ```data```
   * input data for processing
-    * .txt: Notebook export data
-    * .asc: trace data
+    * ```.txt```: notebook exported data
+    * ```.asc```: trace data
     * from both voltage-clamp or current-clamp recordings
   * example data included in directory
-* output
+* ```output```
   * processed data
   * .xlsx
   * example output data included in directory
+* ```src/constants.py```
+  * defines names of recording protocols
 
 ### Usage
 -----
-* option 1: double click executable
-  * on Windows: use main.exe under Windows_executable/
-  * on macOS: use main under macOS_executable/
-* option 2: command line execute main.py under src/
+* option 1 (simplest): double click executable
+  * on Windows: use ```main.exe``` under ```Windows_executable```
+  * on macOS: use ```main``` under ```macOS_executable```
+* option 2 (if you need to modify code): command line execute ```main.py``` under ```src```
+  * requirements:
+    * Python version: 3.10.10
+    * packge: XlsxWriter==3.1.9
+```bash
+python src/main.py
+```
+on macOS, also
+```bash
+./src/main.py
+```
